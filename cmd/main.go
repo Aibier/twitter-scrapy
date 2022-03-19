@@ -9,12 +9,10 @@ import (
 
 func main() {
 	router := gin.Default()
-
 	//run database
 	configs.ConnectDB()
-
 	//routes
-	routes.UserRoute(router)
+	routes.TwitRoute(router)
 
 	err := router.Run("localhost:8000")
 	if err != nil {
