@@ -4,7 +4,7 @@
 3. Postgres as data storage
 
 ##  Architecture Diagram
-![Architecture Diagram](https://github.com/Aibier/twitter-scapy/blob/main/twitterDiagram.png)
+![Architecture Diagram](https://github.com/Aibier/twitter-scrapy/blob/main/twitterDiagram.png)
 ##  Run with Docker
 
 1. **Build**
@@ -41,7 +41,10 @@ make scan
 ```
 6. Add env variables
 ```shell script
-export AWS_ENDPOINT="myhost"
+export TWITTER_TOKEN=
+export TWITTER_URL=https://api.twitter.com/
+export SEARCH_PATH=2/tweets/search/recent
+export COINS=btc,eth,sol,xtz
 os.Getenv("AWS_ENDPOINT") 
 ```
 

@@ -1,14 +1,13 @@
 package helpers
 
 import (
-	"bytes"
 	"context"
 	"crypto/tls"
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"regexp"
 	"time"
 
@@ -58,21 +57,16 @@ func (c *client) MakeRequest(ctx context.Context, httpMethod string, url *url.UR
 	}
 	c.httpClient.Transport = tr
 
-	body, errJSON := json.Marshal(requestData)
-	if errJSON != nil {
-		return nil, statusCode, errJSON
-	}
 	var req *http.Request
 	var err error
-	log.Info("Payload: %s" + string(body))
-	req, err = http.NewRequestWithContext(ctx, httpMethod, url.String(), bytes.NewBuffer(body))
+	req, err = http.NewRequestWithContext(ctx, httpMethod, url.String(), nil)
 	if err != nil {
 		log.WithError(err).Infof("error occurred while making request")
 		return nil, statusCode, fmt.Errorf("error occurred while making token request: %v", err)
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
-	req.SetBasicAuth(c.config.Username, c.config.Password)
+	req.Header.Add("authorization", "Bearer " + os.Getenv("TWITTER_TOKEN"))
 
 	resp, err := c.do(req)
 	if err != nil {

@@ -1,12 +1,11 @@
 package models
 
 import (
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
 
 type TwitPost struct {
-	Id       primitive.ObjectID `json:"id,omitempty"`
-	Title    string             `json:"text,omitempty" validate:"required"`
-	CreatedAt time.Time
+	Id       string `json:"id,omitempty"`
+	Text    string  `json:"text"`
+	CreatedAt time.Time  `json:"created_at"`
 }
