@@ -45,7 +45,6 @@ export TWITTER_TOKEN=
 export TWITTER_URL=https://api.twitter.com/
 export SEARCH_PATH=2/tweets/search/recent
 export COINS=btc,eth,sol,xtz
-os.Getenv("AWS_ENDPOINT") 
 ```
 
 ## Notes
