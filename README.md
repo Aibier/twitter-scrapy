@@ -41,6 +41,7 @@ make scan
 ```
 6. Add env variables
 ```shell script
+export MONGO_URI=
 export TWITTER_TOKEN=
 export TWITTER_URL=https://api.twitter.com/
 export SEARCH_PATH=2/tweets/search/recent
