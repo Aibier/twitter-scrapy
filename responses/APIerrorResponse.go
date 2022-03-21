@@ -1,5 +1,6 @@
 package responses
 
+// ErrorResponse ...
 type ErrorResponse struct {
 	Status  int                    `json:"status"`
 	Detail string                 `json:"detail"`

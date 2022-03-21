@@ -77,7 +77,7 @@ func (c *client) MakeRequest(ctx context.Context, httpMethod string, url *url.UR
 	if err != nil {
 		return nil, statusCode, fmt.Errorf("failed to read body: %w", err)
 	}
-	log.Debugf("Status Code: %d", resp.StatusCode)
+	log.Debugf("Status Code: %v", resp.StatusCode)
 	log.Debugf("Response Body: %s", bodyBytes)
 
 	return bodyBytes, resp.StatusCode, nil

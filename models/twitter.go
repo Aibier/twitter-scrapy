@@ -4,8 +4,9 @@ import (
 	"time"
 )
 
+// TwitPost ...
 type TwitPost struct {
-	Id       string `json:"id,omitempty"`
+	ID       string `json:"id,omitempty"`
 	Text    string  `json:"text"`
 	CreatedAt time.Time  `json:"created_at"`
 }
