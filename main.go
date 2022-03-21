@@ -20,10 +20,7 @@ func HandleRequest(ctx context.Context, name App) (string, error) {
 	if err := app.start(); err != nil {
 		return "", err
 	}
-	i := controllers.Twitter
-	if err := i.SyncTwitterResource(); err != nil {
-		return "", err
-	}
+	controllers.Sync()
 	log.Printf("At the end of my job, let's rest now! Completed time %s", time.Now().Local().String())
 	return fmt.Sprintf("Resources are saved %s by!", name.Name), nil
 }

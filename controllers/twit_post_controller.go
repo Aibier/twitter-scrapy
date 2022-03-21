@@ -10,11 +10,11 @@ import (
 	"os"
 	"strings"
 	"time"
-	helpers "twitter-scrapy/helper"
 
-	"twitter-scrapy/configs"
-	"twitter-scrapy/models"
-	"twitter-scrapy/responses"
+	"github.com/Aibier/twitter-scrapy/configs"
+	helpers "github.com/Aibier/twitter-scrapy/helper"
+	"github.com/Aibier/twitter-scrapy/models"
+	"github.com/Aibier/twitter-scrapy/responses"
 
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
@@ -137,7 +137,7 @@ func saveTwitsIntoDB(cxt context.Context, twitterClient helpers.HTTPClient, path
 		log.Printf("Unmarshal err: %v", err)
 		return err
 	}
-	log.Printf("PerPAGE: %d, total retrieved: %d", PerPAGE, len(searchResponse.Data))
+	log.Printf("PerPAGE: %s, total retrieved: %d", PerPAGE, len(searchResponse.Data))
 	_, err = twitPostCollection.InsertMany(cxt, searchResponse.Data)
 	if err != nil {
 		log.Printf("failed to save into DB %v", err)
