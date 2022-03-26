@@ -41,6 +41,7 @@ make scan
 ```
 6. Add env variables
 ```shell script
+export MONGO_URI=
 export TWITTER_TOKEN=
 export TWITTER_URL=https://api.twitter.com/
 export SEARCH_PATH=2/tweets/search/recent
@@ -51,4 +52,4 @@ export COINS=btc,eth,sol,xtz
 1. Create postgres database and user in your local env.
 2. Make sure you setup file watchers in your idea.
 3. Before make a git push , please make sure you run ```make scan``` and ``` make test```
-#### Contributed by: Aspire Trust and Security Team
+#### Contributed by: Tony
